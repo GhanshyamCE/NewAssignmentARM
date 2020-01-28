@@ -1,7 +1,6 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    
     "resources": [
         {
             
@@ -10,10 +9,11 @@
             "name": "linkedTemplate-function",
             "properties": {
                "mode": "incremental",
-				"templateLink": {
-            "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-function.json')]",
-            "contentVersion": "1.0.0.0"
-        }
+				"templateLink": 
+                    {
+                                "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-function.json')]",
+                                "contentVersion": "1.0.0.0"
+                                }
             }
         }
     ]
