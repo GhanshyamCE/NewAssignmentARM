@@ -4,12 +4,14 @@
   "parameters": {
     "databaseAdminUsername": {
       "type": "string",
+      "defaultValue": "ghanu",
       "metadata": {
         "description": "Username for DB Admin"
       }
     },
     "databaseAdminPassword": {
       "type": "securestring",
+      "defaultValue": "abcd#886",
       "metadata": {
         "description": "Password for DB Admin"
       }
