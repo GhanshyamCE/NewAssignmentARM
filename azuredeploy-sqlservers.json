@@ -53,7 +53,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', "serviceserver")]"
+            "[resourceId('Microsoft.Sql/servers', 'serviceserver')]"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -66,7 +66,7 @@
           "location": "[parameters('location')]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', "serviceserver")]"
+            "[resourceId('Microsoft.Sql/servers', 'serviceserver')]"
           ],
           "tags": {
             "displayName": "database"
