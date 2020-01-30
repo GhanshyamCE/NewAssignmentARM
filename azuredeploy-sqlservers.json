@@ -79,7 +79,11 @@
             "requestedServiceObjectiveName": "[variables('databaseRequestedServiceObjectiveName')]"
           }
         }
-      ]
+      ],
+     "copy": {
+        "name": "server",
+        "count": 1
+      }
     }
   ]
   // "outputs": {
