@@ -12,10 +12,10 @@
   },
   "variables": {
     "storageAccountName": [
-      "exportreports",
-      "logsstore",
-      "datalanding",
-      "filestranfer"
+      "[concat('report',uniqueString(resourceGroup().id))]",
+      "[concat('log',uniqueString(resourceGroup().id))]",
+      "[concat('data',uniqueString(resourceGroup().id))]",
+      "[concat('file',uniqueString(resourceGroup().id))]"
     ]
   },
   "resources": [
