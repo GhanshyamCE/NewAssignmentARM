@@ -35,7 +35,7 @@
   },
   "resources": [
   {
-      "name": "[variables('serverName')]",
+      "name": "[concat('server', uniqueString(resourceGroup().id))]",
       "type": "Microsoft.Sql/servers",
       "location": "[parameters('location')]",
       "apiVersion": "2014-04-01-preview",
@@ -54,7 +54,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
+            "[resourceId('Microsoft.Sql/servers', concat('server', uniqueString(resourceGroup().id)))]"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -67,7 +67,7 @@
           "location": "[parameters('location')]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
+            "[resourceId('Microsoft.Sql/servers', concat('server', uniqueString(resourceGroup().id)))]"
           ],
           "tags": {
             "displayName": "database"
