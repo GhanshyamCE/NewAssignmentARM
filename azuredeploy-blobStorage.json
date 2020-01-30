@@ -13,7 +13,7 @@
   "variables": {
     "storageAccountName": [
       "[concat('ExportReport',uniqueString(resourceGroup().id))]",
-      "[concat('CentralizedLogStore',uniqueString(resourceGroup().id))]",
+      "[concat('LogStore',uniqueString(resourceGroup().id))]",
       "[concat('DataLanding',uniqueString(resourceGroup().id))]",
       "[concat('FileTranfer',uniqueString(resourceGroup().id))]"
     ]
