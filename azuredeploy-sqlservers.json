@@ -27,17 +27,18 @@
   "variables": {
     // "serviceServerName": "[concat('serviceServer', uniqueString(resourceGroup().id))]",
     // "portalServerName": "[concat('portalServer', uniqueString(resourceGroup().id))]",
+     "serverName": "[concat('server', uniqueString(resourceGroup().id))]",
     "databaseName": "DB",
     "databaseCollation": "SQL_Latin1_General_CP1_CI_AS",
     "databaseEdition": "Basic",
     "databaseRequestedServiceObjectiveName": "Basic"
   },
   "resources": [
-    {
-      "name": "[concat('server', uniqueString(resourceGroup().id))]",
+  {
+      "name": "[variables('serverName')]",
       "type": "Microsoft.Sql/servers",
       "location": "[parameters('location')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2014-04-01-preview",
       "dependsOn": [],
       "tags": {
         "displayName": "server"
@@ -53,7 +54,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', concat('server', uniqueString(resourceGroup().id)))]"
+            "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -66,7 +67,7 @@
           "location": "[parameters('location')]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', concat('server', uniqueString(resourceGroup().id)))]"
+            "[resourceId('Microsoft.Sql/servers', variables('serverName'))]"
           ],
           "tags": {
             "displayName": "database"
