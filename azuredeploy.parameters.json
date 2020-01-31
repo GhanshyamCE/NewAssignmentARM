@@ -5,6 +5,6 @@
        "serverNames":{
       "type":"array",
           "value":["portalserver","serviceserver"]
-    },
+    }
     }
 }
