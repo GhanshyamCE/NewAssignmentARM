@@ -17,7 +17,7 @@
               "mode": "incremental",
 				      "templateLink": 
                     {
-                                "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-blobStorage.json')]",
+                                "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-sqlServer.json')]",
                                 "contentVersion": "1.0.0.0"
                                 },
             
