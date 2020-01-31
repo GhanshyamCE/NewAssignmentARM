@@ -5,24 +5,30 @@
     "serverNames":{
       "type":"array"
     }
+   },
     "resources": [
         {
             
-            "apiVersion": "2015-01-01",
+      "apiVersion": "2015-01-01",
 			"type": "Microsoft.Resources/deployments",
-            "name": "linkedTemplate-function",
-		  "parameters": {
-    "serverNames":{
-      "value": "[parameters('serverNames')]"
-    }
-            "properties": {
-               "mode": "incremental",
-				"templateLink": 
+      "name": "linkedTemplate-function",
+		  
+      "properties": {
+              "mode": "incremental",
+				      "templateLink": 
                     {
                                 "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-blobStorage.json')]",
                                 "contentVersion": "1.0.0.0"
-                                }
-            }
+                                },
+            
+            "parameters": 
+            {
+                "serverNames":{
+                    "value": "[parameters('serverNames')]"
+                }
+          }
         }
+        }
+        
     ]
 }
