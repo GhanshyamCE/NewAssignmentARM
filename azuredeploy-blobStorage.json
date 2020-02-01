@@ -42,6 +42,13 @@
     }
   ],
   "outputs": {
-   
+    "AzureStorage_connectionString": {
+      "type": "object",
+      "value": {
+        reportStorage_connectionString:"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName')[0],';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')[0]), '2016-01-01').keys[0].value)]",
+        logStorage_connectionString:"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName')[0],';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')[0]), '2016-01-01').keys[0].value)]",
+        dataStorage_connectionString:"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName')[0],';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')[0]), '2016-01-01').keys[0].value)]",
+        fileStorage_connectionString:"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName')[0],';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')[0]), '2016-01-01').keys[0].value)]"
+    }
   }
 }
