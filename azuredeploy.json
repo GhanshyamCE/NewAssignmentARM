@@ -15,7 +15,7 @@
                     {
                                 "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-sqlservers.json')]",
                                 "contentVersion": "1.0.0.0"
-                                },
+                                }
             
           
         }
