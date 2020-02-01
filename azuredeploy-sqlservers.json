@@ -36,7 +36,7 @@
   },
   "resources": [
   {
-      "name": "[if(equals(copyIndex(),0),variables('serviceServerName'),variables('portalServerName'))]",
+      "name": "[toLower(if(equals(copyIndex(),0),variables('serviceServerName'),variables('portalServerName')))]",
       "type": "Microsoft.Sql/servers",
       "location": "[parameters('location')]",
       "apiVersion": "2014-04-01-preview",
@@ -55,7 +55,7 @@
           "location": "East US",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', if(equals(copyIndex(),0),variables('serviceServerName'),variables('portalServerName')))]"
+            "[resourceId('Microsoft.Sql/servers', toLower(if(equals(copyIndex(),0),variables('serviceServerName'),variables('portalServerName'))))]"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -68,7 +68,7 @@
           "location": "[parameters('location')]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', if(equals(copyIndex(),0),variables('serviceServerName'),variables('portalServerName')))]"
+            "[resourceId('Microsoft.Sql/servers', toLower(if(equals(copyIndex(),0),variables('serviceServerName'),variables('portalServerName'))))]"
           ],
           "tags": {
             "displayName": "database"
