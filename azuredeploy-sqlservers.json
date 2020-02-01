@@ -25,8 +25,8 @@
     }
   },
   "variables": {
-     "serviceServerName": "[concat('serviceServer', uniqueString(resourceGroup().id))]",
-     "portalServerName": "[concat('portalServer', uniqueString(resourceGroup().id))]",
+     "serviceServerName": "[concat('serviceserver', uniqueString(resourceGroup().id))]",
+     "portalServerName": "[concat('portalserver', uniqueString(resourceGroup().id))]",
      //"serverName": "[concat('server', uniqueString(resourceGroup().id))]",
     // "serverNameVar": "[concat(parameters('serverNames'), uniqueString(resourceGroup().id))]",
     "databaseName": "DB",
