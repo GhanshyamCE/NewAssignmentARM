@@ -34,7 +34,12 @@
         "description": "Name of the input file/blob."
       }
     },
-    
+    "AzureStorage_connectionString":{
+      'type": "string"
+    },
+    "AzureSqlDatabase_connectionString":{
+      'type": "string"
+    },
     "sqlTableName": {
       "type": "string",
       "metadata": {
@@ -69,7 +74,7 @@
             "description": "Azure Storage linked service",
             "typeProperties": {
               "connectionString": {
-                "value": "[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]",
+                "value": "[parameters('AzureStorage_connectionString')]",
                 "type": "string"
               }
             }
@@ -87,7 +92,7 @@
             "description": "Azure SQL Database linked service",
             "typeProperties": {
               "connectionString": {
-                "value": "[reference('linkedTemplate-sqlServers').outputs.AzureSqlDatabase_connectionString.value]",
+                "value": "[parameters('AzureSqlDatabase_connectionString')]",
                 "type": "string"
               }
             }
