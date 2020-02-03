@@ -37,6 +37,7 @@
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "name": "linkedTemplate-webapp",
+            "dependsOn": ["linkedTemplate-sqlServers"],
             "properties": {
                 "mode": "incremental",
                 "templateLink": 
@@ -62,6 +63,7 @@
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "name": "linkedTemplate-applicationGateway",
+            "dependsOn": ["linkedTemplate-webapp"],
             "properties": {
                 "mode": "incremental",
                 "templateLink": 
