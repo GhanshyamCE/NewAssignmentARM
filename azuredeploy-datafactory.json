@@ -16,11 +16,12 @@
     },
     "AzureStorage_connectionString": {
       "type": "string",
-       "defaultValue":"[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]",
+      "defaultValue":"[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]",
       "metadata": {
-        "description": "Connection string for the Azure Storage account."
+        "description": "Connnection string for the Azure Storage database."
       }
     },
+    
     "blobContainer": {
       "type": "string",
       "metadata": {
