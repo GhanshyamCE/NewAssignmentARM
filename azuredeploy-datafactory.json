@@ -75,13 +75,8 @@
           "apiVersion": "2017-09-01-preview",
           "properties": {
             "type": "AzureStorage",
-            "description": "Azure Storage linked service",
-            "typeProperties": {
-              "connectionString": {
-                "value": "[parameters('AzureStorage_connectionString')]",
-                "type": "SecureString"
-              }
-            }
+            "description": "Azure Storage linked service"
+           
           }
         },
         {
@@ -93,13 +88,8 @@
           "apiVersion": "2017-09-01-preview",
           "properties": {
             "type": "AzureSqlDatabase",
-            "description": "Azure SQL Database linked service",
-            "typeProperties": {
-              "connectionString": {
-                "value": "[parameters('AzureSqlDatabase_connectionString')]",
-                "type": "SecureString"
-              }
-            }
+            "description": "Azure SQL Database linked service"
+           
           }
         },
         {
