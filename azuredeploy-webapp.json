@@ -107,5 +107,13 @@
                 }
             ]
         }
-    ]
+    ],
+    "outputs": {
+    "webAppName": {
+      "type": "string",
+      "value": "[parameters('siteName')]"
+       
+    
+    }
+  }
 }
