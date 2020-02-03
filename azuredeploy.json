@@ -14,12 +14,7 @@
         "description": "Location of the data factory."
       }
     },
-    "AzureStorage_connectionString": {
-      "type": "string",
-      "metadata": {
-        "description": "Connection string for the Azure Storage account."
-      }
-    },
+  
     "blobContainer": {
       "type": "string",
       "metadata": {
@@ -38,12 +33,7 @@
         "description": "Name of the input file/blob."
       }
     },
-    "AzureSqlDatabase_connectionString": {
-      "type": "string",
-      "metadata": {
-        "description": "Connnection string for the Azure SQL database."
-      }
-    },
+   
     "sqlTableName": {
       "type": "string",
       "metadata": {
@@ -108,9 +98,7 @@
     "Location": {
       "value":"[parameters('Location')]"
     },
-    "AzureStorage_connectionString": {
-     "value":"[parameters('AzureStorage_connectionString')]"
-    },
+   
     "blobContainer": {
       "value":"[parameters('blobContainer')]"
     },
@@ -120,9 +108,7 @@
     "inputBlobName": {
       "value":"[parameters('inputBlobName')]"
     },
-    "AzureSqlDatabase_connectionString": {
-     "value":"[parameters('AzureSqlDatabase_connectionString')]"
-    },
+   
     "sqlTableName": {
    "value":"[parameters('sqlTableName')]"
     }
