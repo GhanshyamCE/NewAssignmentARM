@@ -74,6 +74,9 @@
 		"parameters":{
 			"azureWebapp1":{
 				"value":"[reference('linkedTemplate-webapp').outputs.webAppName.value]"
+			},
+			"location":{
+				"value":"[parameters('Location')]"
 			}
 		}   
             }
