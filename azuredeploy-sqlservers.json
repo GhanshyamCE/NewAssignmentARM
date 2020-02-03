@@ -88,12 +88,12 @@
     }
   ],
   "outputs": {
-    "ServiceServerConnectionString": {
-      "type": "string",
-      "value":"[concat('Server=tcp:', variables('serviceServerName'),'.database.windows.net,1433;Initial Catalog=',variables('databaseName'), ';Persist Security Info=False;User ID=', parameters('databaseAdminUsername'), ';Password=', parameters('databaseAdminPassword'), ';Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
-        
-      
-      
+    "AzureSqlDatabase_connectionString": {
+      "type": "object",
+      "value":{
+        "ServiceServerConnectionString": "[concat('Server=tcp:', variables('serviceServerName'),'.database.windows.net,1433;Initial Catalog=',variables('databaseName'), ';Persist Security Info=False;User ID=', parameters('databaseAdminUsername'), ';Password=', parameters('databaseAdminPassword'), ';Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
+        "PortalServerConnectionString": "[concat('Server=tcp:', variables('portalServerName'),'.database.windows.net,1433;Initial Catalog=',variables('databaseName'), ';Persist Security Info=False;User ID=', parameters('databaseAdminUsername'), ';Password=', parameters('databaseAdminPassword'), ';Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
+      } 
      
     }
   }
