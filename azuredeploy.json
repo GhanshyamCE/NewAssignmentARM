@@ -33,54 +33,7 @@
   },
     "resources": 
     [
-        {
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "name": "linkedTemplate-webapp",
-            "dependsOn": ["linkedTemplate-sqlServers"],
-            "properties": {
-                "mode": "incremental",
-                "templateLink": 
-                {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-webapp.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "location": {
-                        "value":"[parameters('Location')]"
-                    },
-                    "webAppBranch": {
-                        "value":"[parameters('webAppBranch')]"
-                    },
-                    "repoURL": {
-                        "value":"[parameters('repoURL')]"
-                    }
-                    
-                }
-            }
-        },
-        {
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "name": "linkedTemplate-applicationGateway",
-            "dependsOn": ["linkedTemplate-webapp"],
-            "properties": {
-                "mode": "incremental",
-                "templateLink": 
-                {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-applicationGateway.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-		"parameters":{
-			"azureWebapp1":{
-				"value":"[reference('linkedTemplate-webapp').outputs.webAppName.value]"
-			},
-			"location":{
-				"value":"[parameters('Location')]"
-			}
-		}   
-            }
-        },
+        
         {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
