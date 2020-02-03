@@ -17,7 +17,9 @@
     "inputBlobName": {
       "type": "string"
     },
-   
+   "azureWebapp1":{
+	   "type":"string"
+   },
     "sqlTableName": {
       "type": "string"
     },
@@ -70,7 +72,12 @@
                 {
                     "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-applicationGateway.json')]",
                     "contentVersion": "1.0.0.0"
-                }
+                },
+		"parameters":{
+			"azureWebapp1":{
+				"value":"[parameters('azureWebapp1')]"
+			}
+		}   
             }
         },
         {
