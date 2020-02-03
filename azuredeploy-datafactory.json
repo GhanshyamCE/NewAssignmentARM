@@ -14,13 +14,7 @@
         "description": "Location of the data factory."
       }
     },
-    "AzureStorage_connectionString": {
-      "type": "string",
-      "defaultValue":"[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]",
-      "metadata": {
-        "description": "Connnection string for the Azure Storage database."
-      }
-    },
+    
     
     "blobContainer": {
       "type": "string",
@@ -45,6 +39,13 @@
       "defaultValue":"[reference('linkedTemplate-sqlServers').outputs.AzureSqlDatabase_connectionString.value]",
       "metadata": {
         "description": "Connnection string for the Azure SQL database."
+      }
+    },
+    "AzureStorage_connectionString": {
+      "type": "string",
+      "defaultValue":"[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]",
+      "metadata": {
+        "description": "Connnection string for the Azure Storage database."
       }
     },
     "sqlTableName": {
