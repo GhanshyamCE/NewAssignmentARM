@@ -1,7 +1,56 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-	
+	 "parameters": {
+    "dataFactoryName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the data factory. Must be globally unique."
+      }
+    },
+    "Location": {
+      "type": "string",
+      "metadata": {
+        "description": "Location of the data factory."
+      }
+    },
+    "AzureStorage_connectionString": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Connection string for the Azure Storage account."
+      }
+    },
+    "blobContainer": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the blob container in the Azure Storage account."
+      }
+    },
+    "inputBlobFolder": {
+      "type": "string",
+      "metadata": {
+        "description": "The folder in the blob container that has the input file."
+      }
+    },
+    "inputBlobName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the input file/blob."
+      }
+    },
+    "AzureSqlDatabase_connectionString": {
+      "type": "string",
+      "metadata": {
+        "description": "Connnection string for the Azure SQL database."
+      }
+    },
+    "sqlTableName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the target table in the Azure SQL database."
+      }
+    }
+  },
     "resources": [
         {
             
@@ -15,7 +64,33 @@
                     {
                                 "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-datafactory.json')]",
                                 "contentVersion": "1.0.0.0"
-                                }
+                                },
+                                 "parameters": {
+    "dataFactoryName": {
+      "value":"[parameters('dataFactoryName')]"
+    },
+    "Location": {
+      "value":"[parameters('Location')]"
+    },
+    "AzureStorage_connectionString": {
+     "value":"[parameters('AzureStorage_connectionString')]"
+    },
+    "blobContainer": {
+      "value":"[parameters('blobContainer')]"
+    },
+    "inputBlobFolder": {
+     "value":"[parameters('inputBlobFolder')]"
+    },
+    "inputBlobName": {
+      "value":"[parameters('inputBlobName')]"
+    },
+    "AzureSqlDatabase_connectionString": {
+     "value":"[parameters('AzureSqlDatabase_connectionString')]"
+    },
+    "sqlTableName": {
+   "value":"[parameters('sqlTableName')]"
+    }
+  }
             
           
         }
