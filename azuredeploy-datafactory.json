@@ -35,10 +35,10 @@
       }
     },
     "AzureStorage_connectionString":{
-      "type": "string"
+      "type": "securestring"
     },
     "AzureSqlDatabase_connectionString":{
-      "type": "string"
+      "type": "securestring"
     },
     "sqlTableName": {
       "type": "string",
@@ -75,7 +75,7 @@
             "typeProperties": {
               "connectionString": {
                 "value": "[parameters('AzureStorage_connectionString')]",
-                "type": "string"
+                "type": "securestring"
               }
             }
           }
@@ -93,7 +93,7 @@
             "typeProperties": {
               "connectionString": {
                 "value": "[parameters('AzureSqlDatabase_connectionString')]",
-                "type": "string"
+                "type": "securestring"
               }
             }
           }
