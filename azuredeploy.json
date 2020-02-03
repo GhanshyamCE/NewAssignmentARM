@@ -59,25 +59,7 @@
                 }
             }
         },
-        {
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "name": "linkedTemplate-applicationGateway",
-            "dependsOn": ["linkedTemplate-webapp"],
-            "properties": {
-                "mode": "incremental",
-                "templateLink": 
-                {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-applicationGateway.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-		"parameters":{
-			"azureWebapp1":{
-				"value":"[reference('linkedTemplate-webapp').outputs.webAppName.value]"
-			}
-		}   
-            }
-        },
+       
         {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
