@@ -70,12 +70,30 @@
           
         }
         },
+	     {
+            
+      "apiVersion": "2015-01-01",
+			"type": "Microsoft.Resources/deployments",
+      "name": "linkedTemplate-blobStorages",
+		  
+      "properties": {
+              "mode": "incremental",
+				      "templateLink": 
+                    {
+                                "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-blobStorage.json')]",
+                                "contentVersion": "1.0.0.0"
+                                }
+                   
+            
+          
+        }
+        },
         {
             
       "apiVersion": "2015-01-01",
 			"type": "Microsoft.Resources/deployments",
       "name": "linkedTemplate-dataFactory",
-		  "dependsOn": ["linkedTemplate-sqlServers"],
+		  "dependsOn": ["linkedTemplate-sqlServers","linkedTemplate-blobStorages"],
       "properties": {
               "mode": "incremental",
 				      "templateLink": 
