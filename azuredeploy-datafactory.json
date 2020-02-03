@@ -81,7 +81,7 @@
             "typeProperties": {
               "connectionString": {
                 "value": "[parameters('AzureStorage_connectionString')]",
-                "type": "SecureString"
+                "type": "string"
               }
             }
           }
@@ -99,7 +99,7 @@
             "typeProperties": {
               "connectionString": {
                 "value": "[parameters('AzureSqlDatabase_connectionString')]",
-                "type": "SecureString"
+                "type": "string"
               }
             }
           }
