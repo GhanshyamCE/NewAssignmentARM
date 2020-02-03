@@ -111,7 +111,7 @@
     "outputs": {
     "webAppName": {
       "type": "string",
-      "value": "[concat(parameters('siteName'),'.azurewebsites.net']"
+      "value": "[concat(parameters('siteName'),'.azurewebsites.net')]"
        
     
     }
