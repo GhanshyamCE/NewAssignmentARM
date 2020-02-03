@@ -3,48 +3,61 @@
     "contentVersion": "1.0.0.0",
 	 "parameters": {
     "dataFactoryName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the data factory. Must be globally unique."
-      }
+      "type": "string"
     },
     "Location": {
-      "type": "string",
-      "metadata": {
-        "description": "Location of the data factory."
-      }
+      "type": "string"
     },
     "blobContainer": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the blob container in the Azure Storage account."
-      }
+      "type": "string"
     },
     "inputBlobFolder": {
-      "type": "string",
-      "metadata": {
-        "description": "The folder in the blob container that has the input file."
-      }
+      "type": "string"
     },
     "inputBlobName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the input file/blob."
-      }
+      "type": "string"
     },
    
     "sqlTableName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the target table in the Azure SQL database."
+      "type": "string"
+    },
+    "webAppBranch": {
+        "type": "string"
+      },
+      "repoURL": {
+        "type": "string"
       }
-    }
   },
   "variables":{
        
   },
     "resources": 
     [
+        {
+            "apiVersion": "2015-01-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "linkedTemplate-webapp",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": 
+                {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-webapp.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "location": {
+                        "value":"[parameters('Location')]"
+                    },
+                    "webAppBranch": {
+                        "value":"[parameters('webAppBranch')]"
+                    },
+                    "repoURL": {
+                        "value":"[parameters('repoURL')]"
+                    }
+                    
+                }
+            }
+        },
         {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
