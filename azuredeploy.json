@@ -103,6 +103,46 @@
                     "contentVersion": "1.0.0.0"
                 }
             }
+        },
+	    {
+            "apiVersion": "2015-01-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "linkedTemplate-dataFactory",
+            "dependsOn": ["linkedTemplate-sqlServers","linkedTemplate-blobStorages"],
+            "properties": {
+                "mode": "incremental",
+                "templateLink": 
+                {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-datafactory.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "dataFactoryName": {
+                        "value":"[parameters('dataFactoryName')]"
+                    },
+                    "Location": {
+                        "value":"[parameters('Location')]"
+                    },
+                    "blobContainer": {
+                        "value":"[parameters('blobContainer')]"
+                    },
+                    "inputBlobFolder": {
+                        "value":"[parameters('inputBlobFolder')]"
+                    },
+                    "inputBlobName": {
+                        "value":"[parameters('inputBlobName')]"
+                    },
+                    "AzureSqlDatabase_connectionString":{
+                        "value":"[reference('linkedTemplate-sqlServers').outputs.AzureSqlDatabase_connectionString.value]"
+                    },
+                    "AzureStorage_connectionString":{
+                        "value":"[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]"
+                    },
+                    "sqlTableName": {
+                    "value":"[parameters('sqlTableName')]"
+                    }
+                }
+            }
         }
         
     ]
