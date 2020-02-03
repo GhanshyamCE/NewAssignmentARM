@@ -17,9 +17,7 @@
     "inputBlobName": {
       "type": "string"
     },
-   "azureWebapp1":{
-	   "type":"string"
-   },
+   
     "sqlTableName": {
       "type": "string"
     },
@@ -75,7 +73,7 @@
                 },
 		"parameters":{
 			"azureWebapp1":{
-				"value":"[parameters('azureWebapp1')]"
+				"value":"[reference('linkedTemplate-webapp').outputs.webAppName.value]"
 			}
 		}   
             }
