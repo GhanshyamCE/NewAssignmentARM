@@ -41,7 +41,7 @@
     },
     "AzureSqlDatabase_connectionString": {
       "type": "string",
-      "defaultValue":"[reference('linkedTemplate-sqlServers').outputs.AzureSqlDatabase_connectionString.value.ServiceServerConnectionString]",
+      "defaultValue":"[reference('linkedTemplate-sqlServers').outputs.AzureSqlDatabase_connectionString.value]",
       "metadata": {
         "description": "Connnection string for the Azure SQL database."
       }
