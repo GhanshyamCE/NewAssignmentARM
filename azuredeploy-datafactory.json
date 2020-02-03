@@ -16,7 +16,7 @@
     },
     "AzureStorage_connectionString": {
       "type": "string",
-       "defaultValue":"[reference('linkedTemplate-blobStorage').outputs.ServiceServerConnectionString.value]",
+       "defaultValue":"[reference('linkedTemplate-blobStorage').outputs.AzureStorage_connectionString.value]",
       "metadata": {
         "description": "Connection string for the Azure Storage account."
       }
