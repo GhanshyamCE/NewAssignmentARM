@@ -108,7 +108,12 @@
     "inputBlobName": {
       "value":"[parameters('inputBlobName')]"
     },
-   
+   "AzureSqlDatabase_connectionString":{
+   "value":"[reference('linkedTemplate-sqlServers').outputs.AzureSqlDatabase_connectionString.value]"
+   },
+ "AzureStorage_connectionString":{
+   "value":"[reference('linkedTemplate-blobStorages').outputs.AzureStorage_connectionString.value]"
+   },
     "sqlTableName": {
    "value":"[parameters('sqlTableName')]"
     }
