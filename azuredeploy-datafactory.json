@@ -16,6 +16,7 @@
     },
     "AzureStorage_connectionString": {
       "type": "securestring",
+       "defaultValue":"[reference('linkedTemplate-blobStorage').outputs.ServiceServerConnectionString.value]",
       "metadata": {
         "description": "Connection string for the Azure Storage account."
       }
@@ -40,6 +41,7 @@
     },
     "AzureSqlDatabase_connectionString": {
       "type": "string",
+      "defaultValue":"[reference('linkedTemplate-sqlServer').outputs.ServiceServerConnectionString.value]",
       "metadata": {
         "description": "Connnection string for the Azure SQL database."
       }
@@ -75,8 +77,13 @@
           "apiVersion": "2017-09-01-preview",
           "properties": {
             "type": "AzureStorage",
-            "description": "Azure Storage linked service"
-           
+            "description": "Azure Storage linked service",
+            "typeProperties": {
+              "connectionString": {
+                "value": "[parameters('AzureStorage_connectionString')]",
+                "type": "SecureString"
+              }
+            }
           }
         },
         {
@@ -88,8 +95,13 @@
           "apiVersion": "2017-09-01-preview",
           "properties": {
             "type": "AzureSqlDatabase",
-            "description": "Azure SQL Database linked service"
-           
+            "description": "Azure SQL Database linked service",
+            "typeProperties": {
+              "connectionString": {
+                "value": "[parameters('AzureSqlDatabase_connectionString')]",
+                "type": "SecureString"
+              }
+            }
           }
         },
         {
