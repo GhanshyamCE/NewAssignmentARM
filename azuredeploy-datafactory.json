@@ -35,10 +35,10 @@
       }
     },
     "AzureStorage_connectionString":{
-      'type": "string"
+      "type": "string"
     },
     "AzureSqlDatabase_connectionString":{
-      'type": "string"
+      "type": "string"
     },
     "sqlTableName": {
       "type": "string",
