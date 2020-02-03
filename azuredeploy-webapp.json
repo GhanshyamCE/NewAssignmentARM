@@ -11,7 +11,6 @@
         },
         "location": {
             "type": "string",
-            "defaultValue": "[resourceGroup().location]",
             "metadata": {
                 "description": "Location for all resources."
             }
@@ -46,40 +45,17 @@
         "description": "Describes plan's instance count"
       }
         },
-         "dbfqdn": {
-          "type": "string",
-          "metadata": {
-              "description": "Existing sql server fully qualified domain name"
-          }
-      },
-      "databaseName": {
-          "type": "string",
-          "metadata": {
-              "description": "Existing database name"
-          }
-      },
-      "sqlAdministratorLogin": {
-          "type": "string",
-          "metadata": {
-              "description": "Existing database sql admin login name"
-          }
-      },
-      "sqlAdministratorLoginPassword" : {
-          "type": "string",
-          "metadata": {
-              "description": "Existing database sql admin password"
-          }
-      },
+         
+     
         "repoURL": {
             "type": "string",
-            "defaultValue": "https://github.com/GhanshyamCE/webappgatewaylatest.git",
             "metadata": {
                 "description": "The URL for the GitHub repository that contains the project to deploy."
             }
         },
-        "branch": {
+        "webAppBranch": {
             "type": "string",
-            "defaultValue": "master",
+           
             "metadata": {
                 "description": "The branch of the GitHub repository to use."
             }
@@ -111,20 +87,8 @@
                 "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
             ],
             "properties": {
-                "serverFarmId": "[variables('hostingPlanName')]",
-                "siteConfig": {
-             
-              "appSettings": [
-                {
-                  "name": "FUNCTIONS_EXTENSION_VERSION",
-                  "value": "~1"
-                },
-                {
-                  "name": "CustomerConnectionString",
-                    "value": "[concat('Data Source=', parameters('dbfqdn'),';Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('sqlAdministratorLogin'), ';Password=', parameters('sqlAdministratorLoginPassword'), ';Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False')]"
-                }
-              ]
-            }
+                "serverFarmId": "[variables('hostingPlanName')]"
+              
             },
             "resources": [
                 {
@@ -137,7 +101,7 @@
                     ],
                     "properties": {
                         "repoUrl": "[parameters('repoURL')]",
-                        "branch": "[parameters('branch')]",
+                        "branch": "[parameters('webAppBranch')]",
                         "isManualIntegration": true
                     }
                 }
