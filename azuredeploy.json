@@ -26,14 +26,47 @@
       },
       "repoURL": {
         "type": "string"
+      },
+		 "VMadminUsername": {
+      "type": "string"
+    },
+    "VMadminPassword": {
+        "type": "securestring"
+      },
+      "dnsLabelPrefix": {
+        "type": "string"
       }
+		 
   },
   "variables":{
        
   },
     "resources": 
     [
-        
+         {
+            "apiVersion": "2015-01-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "linkedTemplate-virtualMachine",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": 
+                {
+                "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-virtualmachin.json')]",
+                "contentVersion": "1.0.0.0"
+                },
+		 "parameters":{
+			  "VMadminUsername": {
+      "value": "[parameters('VMadminUsername')]"
+    },
+    "VMadminPassword": {
+          "value": "[parameters('VMadminPassword')]"
+      },
+      "dnsLabelPrefix": {
+          "value": "[parameters('dnsLabelPrefix')]"
+      }
+		 }
+            }
+        },
         {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
