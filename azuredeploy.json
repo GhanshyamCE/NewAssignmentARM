@@ -45,19 +45,7 @@
   },
     "resources": 
     [
-        {
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "name": "linkedTemplate-applicationGateway",
-            "properties": {
-                "mode": "incremental",
-                "templateLink": 
-                {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-applicationGateway.json')]",
-                    "contentVersion": "1.0.0.0"
-                }
-            }
-        },
+       
         {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
