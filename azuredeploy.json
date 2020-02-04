@@ -3,47 +3,61 @@
     "contentVersion": "1.0.0.0",
 	 "parameters": {
     "dataFactoryName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Name of the data factory. Must be globally unique."
+      }
     },
     "Location": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Location of the data factory."
+      }
     },
     "blobContainer": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Name of the blob container in the Azure Storage account."
+      }
     },
     "inputBlobFolder": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "The folder in the blob container that has the input file."
+      }
     },
     "inputBlobName": {
-      "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Name of the input file/blob."
+      }
     },
    
     "sqlTableName": {
-      "type": "string"
-    },
-    "webAppBranch": {
-        "type": "string"
-      },
-      "repoURL": {
-        "type": "string"
-      },
-		 "VMadminUsername": {
-      "type": "string"
-    },
-    "VMadminPassword": {
-        "type": "securestring"
-      },
-      "dnsLabelPrefix": {
-        "type": "string"
+      "type": "string",
+      "metadata": {
+        "description": "Name of the target table in the Azure SQL database."
       }
-		 
+    }
   },
   "variables":{
        
   },
     "resources": 
     [
-        
+        {
+            "apiVersion": "2015-01-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "linkedTemplate-applicationGateway",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": 
+                {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy-applicationGateway.json')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
+        },
         {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
@@ -70,15 +84,7 @@
                 }
             }
         },
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    {
+        {
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "name": "linkedTemplate-dataFactory",
@@ -118,7 +124,5 @@
                 }
             }
         }
-	   
-        
     ]
 }
