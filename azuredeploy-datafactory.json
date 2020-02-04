@@ -10,12 +10,16 @@
     },
     "Location": {
       "type": "string",
-      "metadata": {
+          "metadata": {
         "description": "Location of the data factory."
       }
     },
-    
-    
+    "AzureStorage_connectionString": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Connection string for the Azure Storage account."
+      }
+    },
     "blobContainer": {
       "type": "string",
       "metadata": {
@@ -34,11 +38,11 @@
         "description": "Name of the input file/blob."
       }
     },
-    "AzureStorage_connectionString":{
-      "type": "securestring"
-    },
-    "AzureSqlDatabase_connectionString":{
-      "type": "securestring"
+    "AzureSqlDatabase_connectionString": {
+      "type": "string",
+      "metadata": {
+        "description": "Connnection string for the Azure SQL database."
+      }
     },
     "sqlTableName": {
       "type": "string",
@@ -75,7 +79,7 @@
             "typeProperties": {
               "connectionString": {
                 "value": "[parameters('AzureStorage_connectionString')]",
-                "type": "securestring"
+                "type": "SecureString"
               }
             }
           }
@@ -93,7 +97,7 @@
             "typeProperties": {
               "connectionString": {
                 "value": "[parameters('AzureSqlDatabase_connectionString')]",
-                "type": "securestring"
+                "type": "SecureString"
               }
             }
           }
